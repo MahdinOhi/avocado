@@ -5,15 +5,14 @@ function App() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    // API call to Django backend
     axios.get('http://localhost:8000/api/test/')
       .then(response => setMessage(response.data.message))
       .catch(error => console.log(error));
   }, []);
 
   return (
-    <div>
-      <h1>{message}</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-4xl font-bold text-blue-500">{message}</h1>
     </div>
   );
 }
